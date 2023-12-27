@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gefersonholdorf.dscatalog.entities.Category;
+import com.gefersonholdorf.dscatalog.dtos.CategoryDTO;
 import com.gefersonholdorf.dscatalog.services.CategoryService;
 
 @RestController
@@ -17,7 +17,7 @@ public class CategoryResource {
     @Autowired
     private CategoryService categoryService;
     
-    public ResponseEntity<List<Category>> findAll() {
+    public ResponseEntity<List<CategoryDTO>> findAll() {
         return ResponseEntity.ok().body(categoryService.findAll());
     }
 }
