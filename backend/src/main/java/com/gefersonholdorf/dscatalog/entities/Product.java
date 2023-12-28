@@ -14,9 +14,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Data
 @NoArgsConstructor
@@ -34,11 +36,12 @@ public class Product implements Serializable {
     @Column(columnDefinition = "TEXT")
     private String description;
     private Double price;
-    private String img_url;
+    private String imgUrl;
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant date;
 
+    @Setter(AccessLevel.NONE)
     @ManyToMany
     @JoinTable(
         name = "tb_product_category",
